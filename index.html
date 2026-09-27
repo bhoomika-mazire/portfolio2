@@ -2,24 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#10091f">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Bhoomika Mazire | Portfolio</title>
-    <link rel="preload" as="image" href="./floating-girl.png">
+
+    <link rel="preload"
+          href="./floating-girl.png"
+          as="image"
+          fetchpriority="high">
+
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
+
 <body>
 
 <header class="navbar">
     <div class="container nav-inner">
-        <a href="#home" class="logo">Bhoomika<span>.</span></a>
+        <a href="#home" class="logo">BM<span>.</span></a>
 
-        <button class="menu-toggle" type="button"
-                aria-label="Toggle navigation"
+        <button class="menu-toggle"
+                type="button"
+                aria-label="Toggle menu"
                 aria-expanded="false">☰</button>
 
-        <nav class="nav-links" aria-label="Main navigation">
+        <nav class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -31,16 +39,30 @@
 </header>
 
 <main>
+
     <!-- HOME -->
     <section id="home" class="hero">
         <div class="container hero-grid">
-            <div class="hero-text">
-                <p class="eyebrow">HELLO, I'M</p>
-                <h1>Bhoomika <span>Mazire.</span></h1>
-                <h2>Aspiring Data Analyst</h2>
+
+            <div class="hero-content">
+
+                <p class="intro">HELLO, I'M</p>
+
+                <h1>
+                    Bhoomika<br>
+                    <span>Mazire</span>
+                </h1>
+
+                <h2 class="typing-heading">
+                    I'm <span id="typing-text"></span><span
+                    class="cursor">|</span>
+                </h2>
+
                 <p class="hero-description">
-                    M.Sc. Computer Science student passionate about
-                    SQL, Python, Excel and transforming data into
+                    M.Sc. Computer Science student and aspiring
+                    Data Analyst. I work with SQL, Python and
+                    data visualization to explore real-world
+                    problems and transform raw data into
                     meaningful insights.
                 </p>
 
@@ -48,137 +70,167 @@
                     <a href="#projects" class="btn primary">
                         View My Projects ↗
                     </a>
+
                     <a href="#contact" class="btn secondary">
                         Contact Me
                     </a>
                 </div>
             </div>
 
-            <div class="hero-art">
-                <div class="art-glow"></div>
+            <div class="hero-visual">
+
+                <div class="image-glow"></div>
+
+                <div class="floating-badge sql-badge">
+                    ▣ SQL
+                </div>
+
                 <img
                     src="./floating-girl.png"
-                    alt="Floating girl illustration"
-                    class="floating-girl"
+                    alt="Anime girl using a laptop"
+                    class="girl-image"
+                    width="480"
+                    height="480"
                     loading="eager"
-                    fetchpriority="high"
                     decoding="async"
+                    fetchpriority="high"
                 >
+
+                <div class="floating-badge analytics-badge">
+                    📊 Data Analytics
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
         <div class="container">
+
             <div class="section-heading reveal">
                 <span>01 / ABOUT</span>
                 <h2>About Me</h2>
-                <p>A little introduction about myself.</p>
             </div>
 
             <div class="about-card reveal">
                 <p>
-                    Hi! I'm Bhoomika, currently pursuing
-                    <strong>M.Sc. Computer Science</strong>.
+                    I'm Bhoomika Mazire, a Computer Science
+                    graduate currently pursuing my M.Sc.
+                    in Computer Science.
+                </p>
+
+                <p>
+                    I'm an SQL enthusiast and aspiring
+                    Data Analyst who enjoys exploring data,
+                    writing SQL queries and creating
+                    meaningful visualizations.
+                </p>
+
+                <p>
                     I completed my B.Sc. Computer Science
-                    with a final result of <strong>75%</strong>.
-                </p>
-                <p>
-                    My goal is to become a Data Analyst.
-                    I enjoy SQL, Python, Excel, databases
-                    and discovering useful insights from data.
-                </p>
-                <p>
+                    with a final result of 75%.
                     My projects include COVID-19 Data Analysis,
-                    a Health Record Digitization System and
-                    an interactive Password Checker.
+                    a Health Record Digitization System
+                    and a Password Checker.
                 </p>
             </div>
+
         </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="section section-alt">
+    <section id="skills" class="section alternate">
         <div class="container">
+
             <div class="section-heading reveal">
                 <span>02 / EXPERTISE</span>
                 <h2>My Skills</h2>
-                <p>Tools and technologies I work with.</p>
             </div>
 
             <div class="skills-grid">
-                <article class="skill-card reveal">
+
+                <div class="skill-card reveal">
                     <div class="skill-icon">🗄️</div>
                     <h3>SQL & Databases</h3>
                     <p>Joins, subqueries, grouping and queries.</p>
-                </article>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">🐍</div>
                     <h3>Python</h3>
-                    <p>Programming and data analysis fundamentals.</p>
-                </article>
+                    <p>Programming and data analysis.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">📊</div>
                     <h3>Microsoft Excel</h3>
-                    <p>Formulas, data handling and analysis.</p>
-                </article>
+                    <p>Formulas and data handling.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">🔎</div>
                     <h3>Data Analysis</h3>
-                    <p>Exploring and understanding datasets.</p>
-                </article>
+                    <p>Exploring and interpreting datasets.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">📈</div>
                     <h3>Data Visualization</h3>
-                    <p>Creating charts and visual insights.</p>
-                </article>
+                    <p>Charts, graphs and insights.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">🐼</div>
                     <h3>Pandas & NumPy</h3>
-                    <p>Python libraries for working with data.</p>
-                </article>
+                    <p>Python data analysis libraries.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">💾</div>
                     <h3>DBMS</h3>
-                    <p>Database design and relational concepts.</p>
-                </article>
+                    <p>Relational database concepts.</p>
+                </div>
 
-                <article class="skill-card reveal">
+                <div class="skill-card reveal">
                     <div class="skill-icon">🌐</div>
                     <h3>HTML & CSS</h3>
-                    <p>Building and styling web interfaces.</p>
-                </article>
+                    <p>Web page design and styling.</p>
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
         <div class="container">
+
             <div class="section-heading reveal">
                 <span>03 / MY WORK</span>
                 <h2>Featured Projects</h2>
-                <p>Projects I've worked on.</p>
             </div>
 
             <div class="projects-grid">
+
                 <article class="project-card reveal">
-                    <div class="project-banner covid">📊</div>
-                    <div class="project-content">
-                        <span class="project-label">DATA ANALYSIS</span>
+                    <div class="project-image">📊</div>
+
+                    <div class="project-body">
+                        <span class="project-type">
+                            DATA ANALYSIS
+                        </span>
+
                         <h3>COVID-19 Data Analysis</h3>
+
                         <p>
-                            Analyzed COVID-19 data using Python
-                            libraries to explore trends and
-                            visualize useful insights.
+                            Explored COVID-19 datasets
+                            using Python to identify trends
+                            and visualize insights.
                         </p>
+
                         <div class="tags">
                             <span>Python</span>
                             <span>Pandas</span>
@@ -189,15 +241,21 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="project-banner health">🏥</div>
-                    <div class="project-content">
-                        <span class="project-label">DATABASE PROJECT</span>
+                    <div class="project-image">🏥</div>
+
+                    <div class="project-body">
+                        <span class="project-type">
+                            DATABASE PROJECT
+                        </span>
+
                         <h3>Health Record Digitization System</h3>
+
                         <p>
-                            A database-based system for organizing
-                            and managing hospital health records
-                            using SQL and DBMS concepts.
+                            A database-based system for
+                            organizing and managing
+                            hospital health records.
                         </p>
+
                         <div class="tags">
                             <span>SQL</span>
                             <span>DBMS</span>
@@ -207,116 +265,152 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="project-banner password">🔐</div>
-                    <div class="project-content">
-                        <span class="project-label">INTERACTIVE PROJECT</span>
+                    <div class="project-image">🔐</div>
+
+                    <div class="project-body">
+                        <span class="project-type">
+                            INTERACTIVE PROJECT
+                        </span>
+
                         <h3>Password Checker</h3>
+
                         <p>
-                            An interactive tool that checks
+                            An interactive tool for checking
                             password requirements, including
                             uppercase and lowercase letters,
                             numbers and special characters.
                         </p>
+
                         <div class="tags">
                             <span>Python</span>
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
                         </div>
-                        <a class="btn primary project-btn"
-                           href="https://bhoomika-mazire.github.io/pass-checker/"
-                           target="_blank"
-                           rel="noopener noreferrer">
+
+                        <a
+                            class="btn primary project-link"
+                            href="https://bhoomika-mazire.github.io/pass-checker/"
+                            target="_blank"
+                            rel="noopener noreferrer">
                             View Project ↗
                         </a>
                     </div>
                 </article>
+
             </div>
+
         </div>
     </section>
 
     <!-- EDUCATION -->
-    <section id="education" class="section section-alt">
+    <section id="education" class="section alternate">
         <div class="container">
+
             <div class="section-heading reveal">
                 <span>04 / ACADEMICS</span>
                 <h2>Education</h2>
             </div>
 
             <div class="education-list">
-                <article class="education-card reveal">
-                    <span class="education-status">CURRENT</span>
+
+                <div class="education-card reveal">
+                    <span class="status">PURSUING</span>
                     <div>
                         <h3>M.Sc. Computer Science</h3>
-                        <p>Modern College of Arts, Science & Commerce,
-                           Ganeshkhind, Pune</p>
+                        <p>
+                            Modern College of Arts, Science &
+                            Commerce, Ganeshkhind, Pune
+                        </p>
                         <strong>Currently Pursuing</strong>
                     </div>
-                </article>
+                </div>
 
-                <article class="education-card reveal">
-                    <span class="education-status">COMPLETED</span>
+                <div class="education-card reveal">
+                    <span class="status">COMPLETED</span>
                     <div>
                         <h3>B.Sc. Computer Science</h3>
-                        <p>Modern College of Arts, Science & Commerce,
-                           Ganeshkhind, Pune</p>
-                        <strong>Final Result: 75%</strong>
+                        <p>
+                            Modern College of Arts, Science &
+                            Commerce, Ganeshkhind, Pune
+                        </p>
+                        <strong>75%</strong>
                     </div>
-                </article>
+                </div>
 
-                <article class="education-card reveal">
-                    <span class="education-status">COMPLETED</span>
+                <div class="education-card reveal">
+                    <span class="status">COMPLETED</span>
                     <div>
                         <h3>HSC</h3>
-                        <p>PES Modern High School, English Medium,
-                           NCL Campus, Pashan Road, Pune</p>
-                        <strong>Final Result: 60%</strong>
+                        <p>
+                            PES Modern High School,
+                            NCL Campus, Pashan Road, Pune
+                        </p>
+                        <strong>60%</strong>
                     </div>
-                </article>
+                </div>
 
-                <article class="education-card reveal">
-                    <span class="education-status">COMPLETED</span>
+                <div class="education-card reveal">
+                    <span class="status">COMPLETED</span>
                     <div>
                         <h3>SSC</h3>
-                        <p>Modern High School, English Medium, Pune</p>
-                        <strong>Final Result: 70%</strong>
+                        <p>
+                            Modern High School,
+                            English Medium, Pune
+                        </p>
+                        <strong>70%</strong>
                     </div>
-                </article>
+                </div>
+
             </div>
+
         </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section">
         <div class="container">
+
             <div class="section-heading reveal">
-                <span>05 / GET IN TOUCH</span>
+                <span>05 / CONTACT</span>
                 <h2>Let's Connect</h2>
-                <p>Interested in discussing projects or opportunities?</p>
             </div>
 
             <div class="contact-card reveal">
                 <h3>Have something in mind?</h3>
-                <p>Feel free to reach out through my profiles.</p>
+
+                <p>
+                    Feel free to connect with me
+                    about projects and opportunities.
+                </p>
+
                 <div class="contact-links">
-                    <!-- Replace this example email with your actual email -->
-                    <a href="mailto:bhoomika@gmail.com">✉ Email</a>
+                    <!-- Replace the email with your actual address -->
+                    <a href="mailto:bhoomika@gmail.com">
+                        ✉ Email
+                    </a>
+
                     <a href="https://www.linkedin.com/in/bhoomikamazire"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         LinkedIn ↗
                     </a>
+
                     <a href="https://github.com/bhoomika-mazire"
-                       target="_blank" rel="noopener noreferrer">
+                       target="_blank"
+                       rel="noopener noreferrer">
                         GitHub ↗
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
+
 </main>
 
 <footer>
-    <p>© 2026 Bhoomika Mazire. Made with 💜</p>
+    © 2026 Bhoomika Mazire
 </footer>
 
 </body>
