@@ -1,6 +1,3 @@
-
-// TYPING ANIMATION
-
 const typingText = document.getElementById("typing-text");
 
 const roles = [
