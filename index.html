@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,16 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#151a2e">
     <title>Bhoomika Mazire | Portfolio</title>
 
-    <link rel="preload"
-          href="./floating-girl.png"
-          as="image"
-          fetchpriority="high">
+    <!-- Prioritize the original girl image -->
+    <link
+        rel="preload"
+        href="./floating-girl.png"
+        as="image"
+        fetchpriority="high"
+    >
 
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
@@ -18,16 +23,24 @@
 
 <body>
 
+<!-- NAVIGATION -->
 <header class="navbar">
     <div class="container nav-inner">
-        <a href="#home" class="logo">BM<span>.</span></a>
 
-        <button class="menu-toggle"
-                type="button"
-                aria-label="Toggle menu"
-                aria-expanded="false">☰</button>
+        <a href="#home" class="logo">
+            BM<span>.</span>
+        </a>
 
-        <nav class="nav-links">
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <nav class="nav-links" aria-label="Main navigation">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -35,6 +48,7 @@
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
+
     </div>
 </header>
 
@@ -42,6 +56,7 @@
 
     <!-- HOME -->
     <section id="home" class="hero">
+
         <div class="container hero-grid">
 
             <div class="hero-content">
@@ -54,8 +69,9 @@
                 </h1>
 
                 <h2 class="typing-heading">
-                    I'm <span id="typing-text"></span><span
-                    class="cursor">|</span>
+                    I'm <span id="typing-text">
+                        a Computer Science Student
+                    </span><span class="cursor">|</span>
                 </h2>
 
                 <p class="hero-description">
@@ -67,6 +83,7 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#projects" class="btn primary">
                         View My Projects ↗
                     </a>
@@ -74,9 +91,12 @@
                     <a href="#contact" class="btn secondary">
                         Contact Me
                     </a>
+
                 </div>
+
             </div>
 
+            <!-- FLOATING GIRL -->
             <div class="hero-visual">
 
                 <div class="image-glow"></div>
@@ -103,10 +123,13 @@
             </div>
 
         </div>
+
     </section>
+
 
     <!-- ABOUT -->
     <section id="about" class="section">
+
         <div class="container">
 
             <div class="section-heading reveal">
@@ -115,10 +138,11 @@
             </div>
 
             <div class="about-card reveal">
+
                 <p>
                     I'm Bhoomika Mazire, a Computer Science
-                    graduate currently pursuing my M.Sc.
-                    in Computer Science.
+                    graduate currently pursuing my
+                    <strong>M.Sc. in Computer Science</strong>.
                 </p>
 
                 <p>
@@ -130,18 +154,22 @@
 
                 <p>
                     I completed my B.Sc. Computer Science
-                    with a final result of 75%.
+                    with a final result of <strong>75%</strong>.
                     My projects include COVID-19 Data Analysis,
                     a Health Record Digitization System
                     and a Password Checker.
                 </p>
+
             </div>
 
         </div>
+
     </section>
+
 
     <!-- SKILLS -->
     <section id="skills" class="section alternate">
+
         <div class="container">
 
             <div class="section-heading reveal">
@@ -151,61 +179,88 @@
 
             <div class="skills-grid">
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">🗄️</div>
                     <h3>SQL & Databases</h3>
-                    <p>Joins, subqueries, grouping and queries.</p>
-                </div>
+                    <p>
+                        Joins, subqueries, grouping
+                        and database queries.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">🐍</div>
                     <h3>Python</h3>
-                    <p>Programming and data analysis.</p>
-                </div>
+                    <p>
+                        Programming and data analysis
+                        fundamentals.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">📊</div>
                     <h3>Microsoft Excel</h3>
-                    <p>Formulas and data handling.</p>
-                </div>
+                    <p>
+                        Formulas, data handling
+                        and analysis.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">🔎</div>
                     <h3>Data Analysis</h3>
-                    <p>Exploring and interpreting datasets.</p>
-                </div>
+                    <p>
+                        Exploring and understanding
+                        datasets.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">📈</div>
                     <h3>Data Visualization</h3>
-                    <p>Charts, graphs and insights.</p>
-                </div>
+                    <p>
+                        Creating charts and
+                        visual insights.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">🐼</div>
                     <h3>Pandas & NumPy</h3>
-                    <p>Python data analysis libraries.</p>
-                </div>
+                    <p>
+                        Python libraries for
+                        working with data.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">💾</div>
                     <h3>DBMS</h3>
-                    <p>Relational database concepts.</p>
-                </div>
+                    <p>
+                        Database design and
+                        relational concepts.
+                    </p>
+                </article>
 
-                <div class="skill-card reveal">
+                <article class="skill-card reveal">
                     <div class="skill-icon">🌐</div>
                     <h3>HTML & CSS</h3>
-                    <p>Web page design and styling.</p>
-                </div>
+                    <p>
+                        Building and styling
+                        web interfaces.
+                    </p>
+                </article>
 
             </div>
 
         </div>
+
     </section>
+
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
+
         <div class="container">
 
             <div class="section-heading reveal">
@@ -215,10 +270,13 @@
 
             <div class="projects-grid">
 
+                <!-- PROJECT 1 -->
                 <article class="project-card reveal">
+
                     <div class="project-image">📊</div>
 
                     <div class="project-body">
+
                         <span class="project-type">
                             DATA ANALYSIS
                         </span>
@@ -228,7 +286,7 @@
                         <p>
                             Explored COVID-19 datasets
                             using Python to identify trends
-                            and visualize insights.
+                            and visualize useful insights.
                         </p>
 
                         <div class="tags">
@@ -237,23 +295,31 @@
                             <span>NumPy</span>
                             <span>Matplotlib</span>
                         </div>
+
                     </div>
+
                 </article>
 
+
+                <!-- PROJECT 2 -->
                 <article class="project-card reveal">
+
                     <div class="project-image">🏥</div>
 
                     <div class="project-body">
+
                         <span class="project-type">
                             DATABASE PROJECT
                         </span>
 
-                        <h3>Health Record Digitization System</h3>
+                        <h3>
+                            Health Record Digitization System
+                        </h3>
 
                         <p>
                             A database-based system for
-                            organizing and managing
-                            hospital health records.
+                            organizing and managing hospital
+                            health records using SQL and DBMS.
                         </p>
 
                         <div class="tags">
@@ -261,13 +327,19 @@
                             <span>DBMS</span>
                             <span>Database</span>
                         </div>
+
                     </div>
+
                 </article>
 
+
+                <!-- PROJECT 3 -->
                 <article class="project-card reveal">
+
                     <div class="project-image">🔐</div>
 
                     <div class="project-body">
+
                         <span class="project-type">
                             INTERACTIVE PROJECT
                         </span>
@@ -275,10 +347,10 @@
                         <h3>Password Checker</h3>
 
                         <p>
-                            An interactive tool for checking
-                            password requirements, including
-                            uppercase and lowercase letters,
-                            numbers and special characters.
+                            An interactive password checker
+                            that evaluates uppercase letters,
+                            lowercase letters, numbers and
+                            special characters.
                         </p>
 
                         <div class="tags">
@@ -289,22 +361,28 @@
                         </div>
 
                         <a
-                            class="btn primary project-link"
                             href="https://bhoomika-mazire.github.io/pass-checker/"
+                            class="btn primary project-link"
                             target="_blank"
-                            rel="noopener noreferrer">
+                            rel="noopener noreferrer"
+                        >
                             View Project ↗
                         </a>
+
                     </div>
+
                 </article>
 
             </div>
 
         </div>
+
     </section>
+
 
     <!-- EDUCATION -->
     <section id="education" class="section alternate">
+
         <div class="container">
 
             <div class="section-heading reveal">
@@ -314,61 +392,76 @@
 
             <div class="education-list">
 
-                <div class="education-card reveal">
+                <article class="education-card reveal">
                     <span class="status">PURSUING</span>
+
                     <div>
                         <h3>M.Sc. Computer Science</h3>
+
                         <p>
                             Modern College of Arts, Science &
                             Commerce, Ganeshkhind, Pune
                         </p>
+
                         <strong>Currently Pursuing</strong>
                     </div>
-                </div>
+                </article>
 
-                <div class="education-card reveal">
+                <article class="education-card reveal">
                     <span class="status">COMPLETED</span>
+
                     <div>
                         <h3>B.Sc. Computer Science</h3>
+
                         <p>
                             Modern College of Arts, Science &
                             Commerce, Ganeshkhind, Pune
                         </p>
-                        <strong>75%</strong>
-                    </div>
-                </div>
 
-                <div class="education-card reveal">
+                        <strong>Final Result: 75%</strong>
+                    </div>
+                </article>
+
+                <article class="education-card reveal">
                     <span class="status">COMPLETED</span>
+
                     <div>
                         <h3>HSC</h3>
+
                         <p>
                             PES Modern High School,
                             NCL Campus, Pashan Road, Pune
                         </p>
-                        <strong>60%</strong>
-                    </div>
-                </div>
 
-                <div class="education-card reveal">
+                        <strong>Final Result: 60%</strong>
+                    </div>
+                </article>
+
+                <article class="education-card reveal">
                     <span class="status">COMPLETED</span>
+
                     <div>
                         <h3>SSC</h3>
+
                         <p>
                             Modern High School,
                             English Medium, Pune
                         </p>
-                        <strong>70%</strong>
+
+                        <strong>Final Result: 70%</strong>
                     </div>
-                </div>
+                </article>
 
             </div>
 
         </div>
+
     </section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="section">
+
         <div class="container">
 
             <div class="section-heading reveal">
@@ -377,6 +470,7 @@
             </div>
 
             <div class="contact-card reveal">
+
                 <h3>Have something in mind?</h3>
 
                 <p>
@@ -385,26 +479,34 @@
                 </p>
 
                 <div class="contact-links">
-                    <!-- Replace the email with your actual address -->
+
+                    <!-- Replace with your actual email -->
                     <a href="mailto:bhoomika@gmail.com">
                         ✉ Email
                     </a>
 
-                    <a href="https://www.linkedin.com/in/bhoomikamazire"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="https://www.linkedin.com/in/bhoomikamazire"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         LinkedIn ↗
                     </a>
 
-                    <a href="https://github.com/bhoomika-mazire"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="https://github.com/bhoomika-mazire"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         GitHub ↗
                     </a>
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 </main>
