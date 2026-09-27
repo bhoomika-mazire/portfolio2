@@ -14,6 +14,8 @@
     );
 }
 
+/* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -42,9 +44,14 @@ button {
     font: inherit;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 .container {
     width: min(1180px, 92%);
-    margin-inline: auto;
+    margin: 0 auto;
 }
 
 /* NAVBAR */
@@ -77,6 +84,7 @@ button {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 25px;
 }
 
@@ -84,6 +92,7 @@ button {
     color: var(--muted);
     font-size: 14px;
     font-weight: 600;
+    transition: color 0.25s;
 }
 
 .nav-links a:hover,
@@ -119,7 +128,7 @@ button {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
     gap: 60px;
 }
@@ -148,6 +157,8 @@ button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* TYPING TEXT */
 
 .typing-heading {
     font-size: clamp(21px, 2.3vw, 28px);
@@ -184,6 +195,8 @@ button {
     gap: 15px;
 }
 
+/* BUTTONS */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -193,7 +206,9 @@ button {
     border-radius: 30px;
     font-size: 14px;
     font-weight: 750;
-    transition: transform 0.25s, box-shadow 0.25s;
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
 }
 
 .btn:hover {
@@ -206,7 +221,8 @@ button {
 }
 
 .btn.primary:hover {
-    box-shadow: 0 10px 30px rgba(132, 175, 255, 0.28);
+    box-shadow:
+        0 10px 30px rgba(132, 175, 255, 0.28);
 }
 
 .btn.secondary {
@@ -215,7 +231,7 @@ button {
     background: transparent;
 }
 
-/* GIRL AND FLOATING BADGES */
+/* GIRL IMAGE */
 
 .hero-visual {
     position: relative;
@@ -223,6 +239,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    isolation: isolate;
 }
 
 .image-glow {
@@ -236,13 +253,22 @@ button {
         transparent 70%
     );
     filter: blur(25px);
+    pointer-events: none;
 }
 
+/*
+   The girl is NOT hidden by the reveal effect.
+   Her animation starts immediately.
+*/
+
 .girl-image {
+    display: block;
     position: relative;
     z-index: 1;
     width: min(480px, 100%);
     height: auto;
+    opacity: 1;
+    visibility: visible;
     object-fit: contain;
     animation: girlFloat 3.5s ease-in-out infinite;
     filter: drop-shadow(
@@ -260,6 +286,8 @@ button {
     }
 }
 
+/* FLOATING BADGES */
+
 .floating-badge {
     position: absolute;
     z-index: 3;
@@ -269,7 +297,8 @@ button {
     border-radius: 15px;
     font-size: 13px;
     font-weight: 800;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.13);
     animation: badgeFloat 4s ease-in-out infinite;
 }
 
@@ -322,6 +351,8 @@ button {
     line-height: 1.2;
 }
 
+/* CARDS */
+
 .about-card,
 .skill-card,
 .project-card,
@@ -331,6 +362,8 @@ button {
     border: 1px solid rgba(173, 145, 255, 0.25);
     border-radius: 18px;
 }
+
+/* ABOUT */
 
 .about-card {
     max-width: 900px;
@@ -361,7 +394,9 @@ button {
 .skill-card {
     padding: 25px;
     min-height: 205px;
-    transition: transform 0.3s, border-color 0.3s;
+    transition:
+        transform 0.3s,
+        border-color 0.3s;
 }
 
 .skill-card:hover,
@@ -391,13 +426,16 @@ button {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
+    align-items: stretch;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: transform 0.3s, border-color 0.3s;
+    transition:
+        transform 0.3s,
+        border-color 0.3s;
 }
 
 .project-image {
@@ -405,7 +443,8 @@ button {
     display: grid;
     place-items: center;
     font-size: 65px;
-    background: linear-gradient(135deg, #333257, #222a48);
+    background:
+        linear-gradient(135deg, #333257, #222a48);
 }
 
 .project-body {
@@ -527,6 +566,8 @@ button {
     background: #383459;
 }
 
+/* FOOTER */
+
 footer {
     text-align: center;
     padding: 28px;
@@ -534,28 +575,42 @@ footer {
     border-top: 1px solid var(--border);
 }
 
-/* REVEAL */
+/* SCROLL ANIMATION */
 
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s, transform 0.7s;
+    opacity: 1;
+    transform: none;
 }
 
-.reveal.visible {
+/*
+   Elements remain visible even if
+   JavaScript has not loaded.
+*/
+
+.js-ready .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.7s,
+        transform 0.7s;
+}
+
+.js-ready .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
 @media (max-width: 950px) {
     .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .hero-grid {
@@ -566,6 +621,8 @@ footer {
         gap: 12px;
     }
 }
+
+/* MOBILE */
 
 @media (max-width: 700px) {
     .menu-toggle {
@@ -585,6 +642,10 @@ footer {
 
     .nav-links.open {
         display: flex;
+    }
+
+    .hero {
+        padding: 55px 0;
     }
 
     .hero-grid {
@@ -628,13 +689,17 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     .girl-image,
     .floating-badge,
     .cursor {
         animation: none;
     }
 
-    .reveal {
+    .js-ready .reveal {
         opacity: 1;
         transform: none;
     }
