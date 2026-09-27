@@ -1,92 +1,142 @@
+const typingText = document.getElementById("typing-text");
+
+const roles = [
+    "I'm an Computer Science Student",
+    "I'm an SQL Enthusiast",
+     "I'm an Python Learner",
+    "I'm an Aspiring Data Analyst"
+];
+
+let roleIndex = 0;
+let characterIndex = 0;
+let deleting = false;
+
+function typeRole() {
+    if (!typingText) return;
+
+    const currentRole = roles[roleIndex];
+
+    if (!deleting) {
+        characterIndex++;
+    } else {
+        characterIndex--;
+    }
+
+    typingText.textContent =
+        currentRole.substring(0, characterIndex);
+
+    let speed = deleting ? 45 : 85;
+
+    if (!deleting &&
+        characterIndex === currentRole.length) {
+        deleting = true;
+        speed = 1700;
+    }
+
+    if (deleting && characterIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        speed = 350;
+    }
+
+    setTimeout(typeRole, speed);
+}
+
+if (typingText) {
+    typeRole();
+}
+
+
+// MOBILE MENU
+
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".nav-links");
 
 if (menuButton && navigation) {
     menuButton.addEventListener("click", () => {
-        const isOpen = navigation.classList.toggle("open");
+        const open = navigation.classList.toggle("open");
 
         menuButton.setAttribute(
             "aria-expanded",
-            String(isOpen)
+            String(open)
         );
 
-        menuButton.textContent = isOpen ? "✕" : "☰";
+        menuButton.textContent = open ? "✕" : "☰";
     });
 
-    navigation.querySelectorAll("a").forEach((link) => {
+    navigation.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
             navigation.classList.remove("open");
-            menuButton.setAttribute("aria-expanded", "false");
             menuButton.textContent = "☰";
+            menuButton.setAttribute("aria-expanded", "false");
         });
     });
 }
 
 
-// Scroll reveal
+// SCROLL REVEAL
+
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-        (entries, currentObserver) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    currentObserver.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.08
-        }
-    );
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08
+    });
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(element => {
         observer.observe(element);
     });
 } else {
-    revealElements.forEach((element) => {
+    revealElements.forEach(element => {
         element.classList.add("visible");
     });
 }
 
 
-// Highlight the active navigation link
+// ACTIVE NAVIGATION
+
 const sections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+const links = document.querySelectorAll(".nav-links a");
 
-function updateActiveNavigation() {
-    let activeSection = "home";
+function updateNavigation() {
+    let current = "home";
 
-    sections.forEach((section) => {
-        if (window.scrollY >= section.offsetTop - 160) {
-            activeSection = section.id;
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+            current = section.id;
         }
     });
 
-    navLinks.forEach((link) => {
+    links.forEach(link => {
         link.classList.toggle(
             "active",
-            link.getAttribute("href") === "#" + activeSection
+            link.getAttribute("href") === "#" + current
         );
     });
 }
 
-window.addEventListener("scroll", updateActiveNavigation, {
+window.addEventListener("scroll", updateNavigation, {
     passive: true
 });
 
-updateActiveNavigation();
+updateNavigation();
 
 
-// Image loading error
-const girlImage = document.querySelector(".floating-girl");
+// IMAGE ERROR
+
+const girlImage = document.querySelector(".girl-image");
 
 if (girlImage) {
     girlImage.addEventListener("error", () => {
         console.error(
-            "floating-girl.png was not found. " +
-            "Check the filename and repository folder."
+            "Girl image not found. Check floating-girl.png."
         );
     });
 }
