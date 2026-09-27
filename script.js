@@ -1,86 +1,92 @@
-const revealElements = document.querySelectorAll(".reveal");
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector(".nav-links");
 
-if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("active");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.12
-        }
-    );
+if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("open");
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuButton.textContent = isOpen ? "✕" : "☰";
     });
-} else {
-    revealElements.forEach((element) => {
-        element.classList.add("active");
+
+    navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.textContent = "☰";
+        });
     });
 }
 
 
-// Active navbar link
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav a");
+// Scroll reveal
+const revealElements = document.querySelectorAll(".reveal");
 
-function updateActiveLink() {
-    let currentSection = "";
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.08
+        }
+    );
+
+    revealElements.forEach((element) => {
+        observer.observe(element);
+    });
+} else {
+    revealElements.forEach((element) => {
+        element.classList.add("visible");
+    });
+}
+
+
+// Highlight the active navigation link
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+function updateActiveNavigation() {
+    let activeSection = "home";
 
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150;
-        const sectionBottom = sectionTop + section.offsetHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionBottom
-        ) {
-            currentSection = section.id;
+        if (window.scrollY >= section.offsetTop - 160) {
+            activeSection = section.id;
         }
     });
 
     navLinks.forEach((link) => {
         link.classList.toggle(
             "active",
-            link.getAttribute("href") === "#" + currentSection
+            link.getAttribute("href") === "#" + activeSection
         );
     });
 }
 
-window.addEventListener("scroll", updateActiveLink);
-updateActiveLink();
+window.addEventListener("scroll", updateActiveNavigation, {
+    passive: true
+});
+
+updateActiveNavigation();
 
 
-// Check girl image
-const girlImage = document.querySelector(".hero-image img");
+// Image loading error
+const girlImage = document.querySelector(".floating-girl");
 
 if (girlImage) {
     girlImage.addEventListener("error", () => {
         console.error(
-            "Girl image not found. Check floating-girl.png."
+            "floating-girl.png was not found. " +
+            "Check the filename and repository folder."
         );
     });
 }
-
-
-// Smooth navigation
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-        const targetId = link.getAttribute("href");
-        const target = document.getElementById(targetId.slice(1));
-
-        if (target) {
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    });
-});
