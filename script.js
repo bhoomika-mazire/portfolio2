@@ -2,9 +2,9 @@ const typingText = document.getElementById("typing-text");
 
 const roles = [
     "I'm an Computer Science Student",
-    "I'm an SQL Enthusiast",
-     "I'm an Python Learner",
-    "I'm an Aspiring Data Analyst"
+    "an SQL Enthusiast",
+     "an Python Learner",
+    "an Aspiring Data Analyst"
 ];
 
 let roleIndex = 0;
